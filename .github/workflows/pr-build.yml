@@ -1,0 +1,14 @@
+name: PR Build
+run-name: pr-build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/wf-build-app.yml
+    with:
+        push-image: false
+        application: ${{ vars.APPLICATION }}
